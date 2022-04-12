@@ -1,4 +1,5 @@
 ﻿using CapTwitch.Api.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CapTwitch.Api.Controllers;
@@ -8,5 +9,11 @@ public class StreamEventController : GenericController<StreamEvent>
 {
     public StreamEventController(CapTwitchDbContext ctx, IService<StreamEvent> service) : base(ctx, service)
     {
+    }
+
+    [AllowAnonymous]
+    public override List<StreamEvent> All()
+    {
+        return base.All();
     }
 }
