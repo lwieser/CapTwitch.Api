@@ -1,4 +1,5 @@
-﻿using CapTwitch.Api.Model;
+﻿using System.Linq.Expressions;
+using CapTwitch.Api.Model;
 
 namespace CapTwitch.Api.Controllers;
 
@@ -27,5 +28,10 @@ public class UserService : IService<User>
         }
 
         return repo.Add(obj);
+    }
+
+    public User Get(Expression<Func<User, bool>> condition)
+    {
+        return repo.Get(condition);
     }
 }

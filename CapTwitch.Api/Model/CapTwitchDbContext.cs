@@ -12,4 +12,12 @@ public class CapTwitchDbContext : DbContext
     {
             
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<User>(opt =>
+        {
+            opt.HasIndex(x => x.Pseudo).IsUnique();
+        });
+    }
 }

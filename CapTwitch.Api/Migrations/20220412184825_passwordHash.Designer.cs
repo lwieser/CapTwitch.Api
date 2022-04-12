@@ -3,6 +3,7 @@ using System;
 using CapTwitch.Api.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CapTwitch.Api.Migrations
 {
     [DbContext(typeof(CapTwitchDbContext))]
-    partial class CapTwitchDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220412184825_passwordHash")]
+    partial class passwordHash
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,12 +82,9 @@ namespace CapTwitch.Api.Migrations
 
                     b.Property<string>("Pseudo")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Pseudo")
-                        .IsUnique();
 
                     b.ToTable("Users");
                 });
