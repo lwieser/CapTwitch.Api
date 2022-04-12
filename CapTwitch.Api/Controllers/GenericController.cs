@@ -16,13 +16,13 @@ public class GenericController<T> : ControllerBase where T : class, IStoredObjec
     }
 
     [HttpGet]
-    public List<T> All()
+    public virtual List<T> All()
     {
         return Ctx.Set<T>().ToList();
     }
 
     [HttpPost]
-    public T Post([FromBody] T se)
+    public virtual T Post([FromBody] T se)
     {
         return _service.Add(se);
     }
