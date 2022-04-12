@@ -3,11 +3,12 @@ using System.Text;
 using CapTwitch.Api.Model;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 
 namespace CapTwitch.Api.Controllers;
 
-[Route("[controller]")]
+[Route("[controller]"), AllowAnonymous]
 public class AccountController : Controller
 {
     private IService<User> _userService;
@@ -43,8 +44,8 @@ public class AccountController : Controller
 
 public class TokenBuilder
 {
-    private static readonly string _key = "2LuKn3USiHILQabRjQk9m8ZU1axDoVAe";
-    private static readonly string _issuer = "CapTwith";
+    public static readonly string _key = "2LuKn3USiHILQabRjQk9m8ZU1axDoVAe";
+    public static readonly string _issuer = "CapTwith";
 
     public static string BuildToken(string userName, string id)
     {
