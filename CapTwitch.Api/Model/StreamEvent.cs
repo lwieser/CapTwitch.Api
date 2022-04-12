@@ -9,9 +9,4 @@
         public string Background { get; set; }
         public string Tecs { get; set; }
     }
-
-    public interface IStoredObject
-    {
-        public int Id { get; set; }
-    }
 }

@@ -6,8 +6,7 @@ namespace CapTwitch.Api.Controllers;
 [Route("[controller]")]
 public class StreamRequestController : GenericController<StreamRequest>
 {
-
-    public StreamRequestController(CapTwitchDbContext ctx) : base(ctx)
+    public StreamRequestController(CapTwitchDbContext ctx, IService<StreamRequest> service) : base(ctx, service)
     {
     }
 }

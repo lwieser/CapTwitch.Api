@@ -8,9 +8,11 @@ namespace CapTwitch.Api.Controllers;
 public class GenericController<T> : ControllerBase where T : class, IStoredObject
 {
     protected CapTwitchDbContext Ctx;
-    public GenericController(CapTwitchDbContext ctx)
+    private IService<T> _service;
+    public GenericController(CapTwitchDbContext ctx, IService<T> service)
     {
         Ctx = ctx;
+        _service = service;
     }
 
     [HttpGet]
@@ -22,9 +24,7 @@ public class GenericController<T> : ControllerBase where T : class, IStoredObjec
     [HttpPost]
     public T Post([FromBody] T se)
     {
-        Ctx.Set<T>().Add(se);
-        Ctx.SaveChanges();
-        return se;
+        return _service.Add(se);
     }
 
     [HttpGet("{id}")]
