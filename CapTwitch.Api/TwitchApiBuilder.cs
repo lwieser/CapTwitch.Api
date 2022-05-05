@@ -21,6 +21,16 @@ public class TwitchApiBuilder
             opt.UseMySql(cs, ServerVersion.AutoDetect(cs));
         });
         webApplicationBuilder.Services.AddMvc().AddNewtonsoftJson();
+        webApplicationBuilder.Services.AddCors(options =>
+        {
+            options.AddPolicy(name: "AllowOrigin",
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+        });
         return webApplicationBuilder;
     }
 

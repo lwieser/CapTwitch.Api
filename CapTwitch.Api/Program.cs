@@ -8,6 +8,7 @@ var builder = TwitchApiBuilder.Builder(args);
 builder.Services.SetupJwt();
 var app = builder.Build();
 
+app.UseCors("AllowOrigin");
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
