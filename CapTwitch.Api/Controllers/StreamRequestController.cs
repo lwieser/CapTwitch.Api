@@ -1,4 +1,5 @@
-﻿using CapTwitch.Api.Model;
+﻿using CapTwitch.Model.Model;
+using CapTwitch.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

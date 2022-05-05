@@ -1,6 +1,7 @@
 using CapTwitch.Api.Controllers;
-using CapTwitch.Api.Model;
 using CapTwitch.Api.Tests.Builders;
+using CapTwitch.Model.Model;
+using CapTwitch.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -9,9 +10,9 @@ namespace CapTwitch.Api.Tests;
 [TestClass]
 public class UserServiceTester
 {
-    private IService<User> _service;
-    private Mock<IRepository<User>> _repoMock;
-    private Mock<IBadWordChecker> _badWordChecker;
+    private readonly IService<User> _service;
+    private readonly Mock<IRepository<User>> _repoMock;
+    private readonly Mock<IBadWordChecker> _badWordChecker;
 
     public UserServiceTester()
     {

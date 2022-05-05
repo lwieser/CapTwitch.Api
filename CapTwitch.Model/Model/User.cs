@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CapTwitch.Model.Interfaces;
 
-namespace CapTwitch.Api.Model;
+namespace CapTwitch.Model.Model;
 
 public class User : IStoredObject
 {

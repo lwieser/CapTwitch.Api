@@ -1,4 +1,4 @@
-﻿namespace CapTwitch.Api.Model;
+﻿namespace CapTwitch.Model.Interfaces;
 
 public interface IStoredObject
 {

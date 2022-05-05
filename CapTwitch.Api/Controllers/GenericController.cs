@@ -1,4 +1,6 @@
-﻿using CapTwitch.Api.Model;
+﻿using CapTwitch.Model.Interfaces;
+using CapTwitch.Model.Model;
+using CapTwitch.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +10,7 @@ namespace CapTwitch.Api.Controllers;
 public class GenericController<T> : ControllerBase where T : class, IStoredObject
 {
     protected CapTwitchDbContext Ctx;
-    private IService<T> _service;
+    private readonly IService<T> _service;
     public GenericController(CapTwitchDbContext ctx, IService<T> service)
     {
         Ctx = ctx;

@@ -1,4 +1,4 @@
-﻿namespace CapTwitch.Api.Services
+﻿namespace CapTwitch.Services.Services
 {
     public class PasswordValdator
     {

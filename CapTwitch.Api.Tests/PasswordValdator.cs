@@ -1,5 +1,5 @@
 using System;
-using CapTwitch.Api.Services;
+using CapTwitch.Services.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CapTwitch.Api.Tests;

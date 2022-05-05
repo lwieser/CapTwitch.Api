@@ -1,4 +1,4 @@
-﻿using CapTwitch.Api.Model;
+﻿using CapTwitch.Model.Model;
 
 namespace CapTwitch.Api.Tests.Builders
 {

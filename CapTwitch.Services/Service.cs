@@ -1,11 +1,12 @@
 ﻿using System.Linq.Expressions;
-using CapTwitch.Api.Model;
+using CapTwitch.Model.Interfaces;
+using CapTwitch.Model.Model;
 
-namespace CapTwitch.Api.Controllers;
+namespace CapTwitch.Services;
 
 public class Service<T> : IService<T> where T : class, IStoredObject
 {
-    private IRepository<T> repo;
+    private readonly IRepository<T> repo;
 
     public Service(IRepository<T> repo)
     {

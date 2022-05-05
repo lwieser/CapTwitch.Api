@@ -1,7 +1,8 @@
 ﻿using System.Linq.Expressions;
-using CapTwitch.Api.Model;
+using CapTwitch.Model.Interfaces;
+using CapTwitch.Model.Model;
 
-namespace CapTwitch.Api.Controllers;
+namespace CapTwitch.Services;
 
 public interface IService<T> where T : class, IStoredObject
 {

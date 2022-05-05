@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapTwitch.Api.Controllers;
-using CapTwitch.Api.Model;
+using CapTwitch.Model.Model;
+using CapTwitch.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,7 +20,7 @@ namespace CapTwitch.Api.Tests.Integration
         public ControllerGenericTester()
         {
 
-            WebApplicationBuilder builder = TwitchApiBuilder.Builder(new string[0]);
+            WebApplicationBuilder builder = TwitchApiBuilder.Builder(Array.Empty<string>());
             var webapp = builder.Build();
             _serviceProvider = webapp.Services.CreateScope().ServiceProvider;
         }

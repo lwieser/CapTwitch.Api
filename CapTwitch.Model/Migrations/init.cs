@@ -1,10 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace CapTwitch.Api.Migrations
+namespace CapTwitch.Model.Migrations
 {
     public partial class init : Migration
     {

@@ -1,5 +1,6 @@
 using CapTwitch.Api.Controllers;
-using CapTwitch.Api.Model;
+using CapTwitch.Model.Model;
+using CapTwitch.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -12,8 +13,7 @@ namespace CapTwitch.Api.Tests
         public void Post_WithUser_ThenServiceMethodIsCalledWithSameUser()
         {
             var user = new User();
-            Mock<IService<User>> serviceMock;
-            serviceMock = new Mock<IService<User>>();
+            var serviceMock = new Mock<IService<User>>();
             UserController controller = new UserController(null, serviceMock.Object);
             controller.Post(user);
 

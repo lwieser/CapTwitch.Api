@@ -1,8 +1,9 @@
 ﻿using System.Security.Claims;
 using System.Text;
-using CapTwitch.Api.Model;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
+using CapTwitch.Model.Model;
+using CapTwitch.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 
@@ -11,7 +12,7 @@ namespace CapTwitch.Api.Controllers;
 [Route("[controller]"), AllowAnonymous]
 public class AccountController : Controller
 {
-    private IService<User> _userService;
+    private readonly IService<User> _userService;
 
     public AccountController(IService<User> userService)
     {
