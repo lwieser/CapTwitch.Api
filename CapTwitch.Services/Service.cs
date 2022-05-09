@@ -22,4 +22,14 @@ public class Service<T> : IService<T> where T : class, IStoredObject
     {
         return repo.Get(condition);
     }
+
+    public List<T> GetAll(Expression<Func<T, bool>> expression)
+    {
+        return repo.GetAll(expression);
+    }
+
+    public T Find(int id)
+    {
+        return repo.Find(id);
+    }
 }

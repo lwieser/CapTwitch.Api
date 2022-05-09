@@ -10,29 +10,29 @@ namespace CapTwitch.Api.Controllers;
 public class GenericController<T> : ControllerBase where T : class, IStoredObject
 {
     protected CapTwitchDbContext Ctx;
-    private readonly IService<T> _service;
+    protected readonly IService<T> Service;
     public GenericController(CapTwitchDbContext ctx, IService<T> service)
     {
+        Service = service;
         Ctx = ctx;
-        _service = service;
     }
 
     [HttpGet]
     public virtual List<T> All()
     {
-        return Ctx.Set<T>().ToList();
+        return Service.GetAll();
     }
 
     [HttpPost]
     public virtual T Post([FromBody] T se)
     {
-        return _service.Add(se);
+        return Service.Add(se);
     }
 
     [HttpGet("{id}")]
     public T Get(int id)
     {
-        return Ctx.Set<T>().Find(id);
+        return Service.Find(id);
     }
 
     [HttpPut("{id}")]

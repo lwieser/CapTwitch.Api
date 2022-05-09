@@ -25,6 +25,22 @@ public class Repository<T> : IRepository<T> where T : class, IStoredObject
         return Ctx.Set<T>().FirstOrDefault(condition);
     }
 
+    public List<T> GetAll(Expression<Func<T, bool>> expression)
+    {
+        var dbSet = Ctx.Set<T>().AsQueryable();
+        if (expression != null)
+        {
+            dbSet = dbSet.Where(expression);
+        }
+
+        return dbSet.ToList();
+    }
+
+    public T Find(int id)
+    {
+        return Ctx.Set<T>().Find(id);
+    }
+
     public List<T> All()
     {
         return Ctx.Set<T>().ToList();
