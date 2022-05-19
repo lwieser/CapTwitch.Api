@@ -6,7 +6,7 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["CapTwitch.Api/CapTwitch.Api.csproj", ""]
+COPY ["CapTwitch.Api/CapTwitch.Api.csproj", "CapTwitch.Api/"]
 COPY ["CapTwitch.Services/CapTwitch.Services.csproj", "CapTwitch.Services/"]
 COPY ["CapTwitch.Model/CapTwitch.Model.csproj", "CapTwitch.Model/"]
 RUN dotnet restore "CapTwitch.Api/CapTwitch.Api.csproj"
