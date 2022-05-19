@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace CapTwitch.Api.Model;
+namespace CapTwitch.Model.Model;
 
 public class CapTwitchDbContext : DbContext
 {

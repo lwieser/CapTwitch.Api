@@ -8,6 +8,7 @@ var builder = TwitchApiBuilder.Builder(args);
 builder.Services.SetupJwt();
 var app = builder.Build();
 
+app.UseCors("Toto");
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

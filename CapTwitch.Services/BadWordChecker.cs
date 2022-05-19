@@ -1,4 +1,4 @@
-﻿namespace CapTwitch.Api.Controllers;
+﻿namespace CapTwitch.Services;
 
 public class BadWordChecker : IBadWordChecker
 {

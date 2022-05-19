@@ -1,6 +1,7 @@
 using CapTwitch.Api.Controllers;
-using CapTwitch.Api.Model;
 using CapTwitch.Api.Tests.Builders;
+using CapTwitch.Model.Model;
+using CapTwitch.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -9,7 +10,7 @@ namespace CapTwitch.Api.Tests;
 [TestClass]
 public class UserRepositoryTester
 {
-    private Repository<User> _repo;
+    private readonly Repository<User> _repo;
 
     public UserRepositoryTester()
     {

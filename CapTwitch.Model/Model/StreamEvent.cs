@@ -1,4 +1,6 @@
-﻿namespace CapTwitch.Api.Model
+﻿using CapTwitch.Model.Interfaces;
+
+namespace CapTwitch.Model.Model
 {
     public class StreamEvent : IStoredObject
     {

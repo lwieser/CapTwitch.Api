@@ -1,14 +1,14 @@
 ﻿using System.Linq.Expressions;
-using CapTwitch.Api.Model;
+using CapTwitch.Model.Model;
 
-namespace CapTwitch.Api.Controllers;
+namespace CapTwitch.Services;
 
-public class UserService : IService<User>
+public class UserService : Service<User>, IService<User>
 {
-    private IRepository<User> repo;
-    private IBadWordChecker _badWordChecker;
+    private readonly IRepository<User> repo;
+    private readonly IBadWordChecker _badWordChecker;
 
-    public UserService(IRepository<User> repo, IBadWordChecker badWordChecker)
+    public UserService(IRepository<User> repo, IBadWordChecker badWordChecker) : base(repo)
     {
         this.repo = repo;
         _badWordChecker = badWordChecker;

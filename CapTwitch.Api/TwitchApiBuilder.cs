@@ -1,6 +1,8 @@
-using CapTwitch.Api.Controllers;
-using CapTwitch.Api.Model;
+using CapTwitch.Model.Model;
+using CapTwitch.Services;
 using Microsoft.EntityFrameworkCore;
+
+namespace CapTwitch.Api;
 
 public class TwitchApiBuilder
 {
@@ -21,6 +23,16 @@ public class TwitchApiBuilder
             opt.UseMySql(cs, ServerVersion.AutoDetect(cs));
         });
         webApplicationBuilder.Services.AddMvc().AddNewtonsoftJson();
+        webApplicationBuilder.Services.AddCors(options =>
+        {
+            options.AddPolicy(name: "Toto",
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+        });
         return webApplicationBuilder;
     }
 

@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CapTwitch.Api.Controllers;
+namespace CapTwitch.Services;
 
 public static class EncryptionHelper
 {
